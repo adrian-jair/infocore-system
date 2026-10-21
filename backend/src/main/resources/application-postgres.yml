@@ -1,0 +1,16 @@
+spring:
+  config:
+    activate:
+      on-profile: postgres
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/bsc_db
+    driver-class-name: org.postgresql.Driver
+    username: bsc_user
+    password: bsc_password
+
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: false

@@ -1,0 +1,103 @@
+@if (isLoginPage()) {
+  <router-outlet></router-outlet>
+} @else {
+  <div class="app-container">
+    <!-- Barra Lateral (Sidebar) Corporativa -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="brand-logo">📊</div>
+        <div class="brand-text">
+          <span class="brand-title">TechPeru SAC</span>
+          <span class="brand-subtitle">Balanced Scorecard 2025</span>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a routerLink="/dashboard" routerLinkActive="active" class="nav-item">
+          <span class="nav-icon">📈</span>
+          <span class="nav-text">Dashboard Ejecutivo</span>
+        </a>
+        <a routerLink="/bsc-completo" routerLinkActive="active" class="nav-item">
+          <span class="nav-icon">📊</span>
+          <span class="nav-text">BSC Completo (36 KPIs)</span>
+        </a>
+        <a routerLink="/mapa-estrategico" routerLinkActive="active" class="nav-item">
+          <span class="nav-icon">🗺️</span>
+          <span class="nav-text">Mapa Estratégico</span>
+        </a>
+        <a routerLink="/objetivos" routerLinkActive="active" class="nav-item">
+          <span class="nav-icon">🎯</span>
+          <span class="nav-text">Objetivos Estratégicos</span>
+        </a>
+        <a routerLink="/mediciones" routerLinkActive="active" class="nav-item">
+          <span class="nav-icon">📝</span>
+          <span class="nav-text">Registro de Resultados</span>
+        </a>
+        <a routerLink="/iniciativas" routerLinkActive="active" class="nav-item">
+          <span class="nav-icon">🚀</span>
+          <span class="nav-text">Iniciativas Estratégicas</span>
+        </a>
+        <a routerLink="/reportes" routerLinkActive="active" class="nav-item">
+          <span class="nav-icon">📑</span>
+          <span class="nav-text">Reportes y Exportación</span>
+        </a>
+        <a routerLink="/admin" routerLinkActive="active" class="nav-item">
+          <span class="nav-icon">⚙️</span>
+          <span class="nav-text">Administración & IAM</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="compliance-status-pill">
+          <span class="status-dot"></span>
+          <span class="status-text">Índice: <strong>84.2% (En riesgo)</strong></span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Contenido Principal -->
+    <div class="main-wrapper">
+      <!-- Barra Superior (Navbar) -->
+      <header class="topbar">
+        <div class="topbar-left">
+          <span class="company-badge">EMPRESA OFICIAL: TechPeru SAC</span>
+          <span class="period-badge">Período Activo: 2025</span>
+        </div>
+
+        <div class="topbar-right">
+          @if (authService.currentUser()) {
+            <div class="user-profile-menu">
+              <div class="user-avatar">
+                {{ authService.currentUser()!.name.charAt(0) }}
+              </div>
+              <div class="user-info">
+                <span class="user-name">{{ authService.currentUser()!.name }}</span>
+                <span class="user-role">{{ authService.currentUser()!.roleDisplay }} · {{ authService.currentUser()!.area }}</span>
+              </div>
+            </div>
+
+            <!-- Selector de Cambio Rápido de Rol Demo -->
+            <div class="demo-selector-wrap">
+              <select class="form-select form-select-sm" (change)="switchUser($any($event.target).value)">
+                <option value="admin@demo.com" [selected]="authService.currentUser()!.email === 'admin@demo.com'">Demo: Administrador</option>
+                <option value="gerente@demo.com" [selected]="authService.currentUser()!.email === 'gerente@demo.com'">Demo: Gerente</option>
+                <option value="responsable@demo.com" [selected]="authService.currentUser()!.email === 'responsable@demo.com'">Demo: Responsable</option>
+              </select>
+            </div>
+
+            <button class="btn btn-secondary btn-sm" (click)="logout()" title="Cerrar sesión">
+              Salir
+            </button>
+          } @else {
+            <a routerLink="/login" class="btn btn-primary btn-sm">Iniciar Sesión</a>
+          }
+        </div>
+      </header>
+
+      <!-- Vista de Rutas Hijas -->
+      <main class="main-content">
+        <router-outlet></router-outlet>
+      </main>
+    </div>
+  </div>
+}

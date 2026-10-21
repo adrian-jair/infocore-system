@@ -1,0 +1,1 @@
+La aplicación usa una SPA con vistas renderizadas por JavaScript para compartir estado y persistencia local. La navegación del menú cambia de módulo sin recargar la página. Si se necesita que cada pantalla sea un archivo físico independiente, se puede separar usando el mismo contrato de localStorage.

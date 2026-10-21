@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TechPeru SAC | Balanced Scorecard 2025</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js" defer></script>
+  <script src="js/app.js" defer></script>
+</head>
+<body>
+  <!-- Pantalla de Login / Acceso -->
+  <div id="loginView" class="login-wrap">
+    <div class="login-card">
+      <div class="brand brand-login">
+        <span class="brand-mark">TP</span>
+        <div>
+          <strong>TechPeru SAC</strong>
+          <small>Balanced Scorecard · Sistema de Gestión Estratégica</small>
+        </div>
+      </div>
+      <h1>Acceso al Sistema</h1>
+      <p class="muted">Ingresa las credenciales de demostración para explorar el Cuadro de Mando Integral 2025.</p>
+      
+      <form id="loginForm">
+        <label>
+          Correo electrónico o Usuario
+          <input id="loginUser" autocomplete="username" value="admin@demo.com" required placeholder="admin@demo.com">
+        </label>
+        <label>
+          Contraseña
+          <input id="loginPass" type="password" autocomplete="current-password" value="BSC2026!" required>
+        </label>
+        <p id="loginError" class="error-text hidden">Credenciales incorrectas. Usa una de las cuentas demo indicadas abajo.</p>
+        <button class="btn primary full" type="submit">Ingresar al Cuadro de Mando <span>→</span></button>
+      </form>
+
+      <div class="demo-note">
+        <strong>Credenciales de Demostración Disponibles:</strong><br>
+        • <b>Administrador:</b> <code>admin@demo.com</code> / <code>BSC2026!</code><br>
+        • <b>Gerente:</b> <code>gerente@demo.com</code> / <code>BSC2026!</code><br>
+        • <b>Responsable:</b> <code>responsable@demo.com</code> / <code>BSC2026!</code>
+      </div>
+      <small class="muted">TechPeru SAC 2025 · 4 Perspectivas · 12 Objetivos · 36 KPIs</small>
+    </div>
+
+    <div class="login-art">
+      <div class="art-orbit orbit1"></div>
+      <div class="art-orbit orbit2"></div>
+      <div class="art-content">
+        <span class="eyebrow">BALANCED SCORECARD AMPLIADO · 2025</span>
+        <h2>Alinea la estrategia<br>con resultados reales.</h2>
+        <p>Monitorea las 4 perspectivas del Balanced Scorecard con semaforización ejecutiva en tiempo real, gestión de iniciativas y trazabilidad de causa y efecto.</p>
+        <div class="art-stats">
+          <div><b>4</b><small>Perspectivas</small></div>
+          <div><b>12</b><small>Objetivos</small></div>
+          <div><b>36</b><small>KPIs Medidos</small></div>
+          <div><b>84.2%</b><small>Índice Global</small></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Shell Principal de la Aplicación -->
+  <div id="appView" class="app-shell hidden">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <span class="brand-mark">TP</span>
+        <div>
+          <strong>TechPeru SAC</strong>
+          <small>Balanced Scorecard 2025</small>
+        </div>
+        <button id="sidebarClose" class="icon-btn mobile-only" aria-label="Cerrar menú">×</button>
+      </div>
+
+      <div class="org-switch">
+        <span class="org-icon">TP</span>
+        <div>
+          <strong>TechPeru SAC</strong>
+          <small>RUC: 20608945123 · Periodo 2025</small>
+        </div>
+        <span class="chevron">⌄</span>
+      </div>
+
+      <nav id="mainNav" aria-label="Navegación principal">
+        <div class="nav-label">GESTIÓN ESTRATÉGICA</div>
+        <button class="nav-item active" data-page="dashboard"><span class="nav-icon">▦</span>Dashboard ejecutivo</button>
+        <button class="nav-item" data-page="bsc-completo"><span class="nav-icon">📊</span>BSC Completo (36 KPIs)</button>
+        <button class="nav-item" data-page="mapa"><span class="nav-icon">⌘</span>Mapa estratégico</button>
+        <button class="nav-item" data-page="objetivos"><span class="nav-icon">◎</span>Objetivos estratégicos</button>
+        <button class="nav-item" data-page="kpis"><span class="nav-icon">▥</span>Catálogo de KPIs</button>
+        <button class="nav-item" data-page="mediciones"><span class="nav-icon">↗</span>Registro de resultados</button>
+        <button class="nav-item" data-page="iniciativas"><span class="nav-icon">◈</span>Iniciativas estratégicas</button>
+
+        <div class="nav-label">ANÁLISIS Y CONTROL</div>
+        <button class="nav-item" data-page="reportes"><span class="nav-icon">▤</span>Reportes y Exportación</button>
+        <button class="nav-item" data-page="administracion"><span class="nav-icon">⚙</span>Administración</button>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="help-card">
+          <span class="help-icon">ℹ</span>
+          <div>
+            <strong>TechPeru SAC | 2025</strong>
+            <small>Semáforo: ≥90% Logrado | 75-89% Riesgo | &lt;75% Crítico</small>
+          </div>
+        </div>
+        <div class="sidebar-user">
+          <div class="avatar" id="sideUserAvatar">AP</div>
+          <div class="user-meta">
+            <strong id="sideUserName">Ana Pérez</strong>
+            <small id="sideUserRole">Administradora</small>
+          </div>
+          <button id="logoutBtn" class="logout" title="Cerrar sesión">↪</button>
+        </div>
+      </div>
+    </aside>
+
+    <div class="main-column">
+      <header class="topbar">
+        <div class="topbar-left">
+          <button id="menuToggle" class="icon-btn mobile-only" aria-label="Abrir menú">☰</button>
+          <div class="breadcrumb">
+            <span>TechPeru SAC</span>
+            <span class="crumb-sep">/</span>
+            <strong id="breadcrumbPage">Dashboard ejecutivo</strong>
+          </div>
+        </div>
+
+        <div class="top-actions">
+          <label class="period-select">
+            Período
+            <select id="globalPeriod">
+              <option value="2025" selected>2025</option>
+              <option value="2024">2024</option>
+              <option value="2026">2026</option>
+            </select>
+          </label>
+
+          <button id="notificationsBtn" class="icon-btn notification-btn" title="Alertas de Indicadores Críticos">
+            🔔<span id="notificationBadge" class="notification-count">6</span>
+          </button>
+
+          <div class="top-profile" id="topProfileBtn" title="Perfil de usuario">
+            <div class="avatar small-avatar" id="topUserAvatar">AP</div>
+            <div>
+              <strong id="topUserName">Ana Pérez</strong>
+              <small id="topUserRole">Administradora</small>
+            </div>
+            <span class="chevron">⌄</span>
+          </div>
+        </div>
+      </header>
+
+      <main id="pageContent" tabindex="-1"></main>
+
+      <footer class="app-footer">
+        <span>Balanced Scorecard Ampliado — TechPeru SAC | 2025 · 4 Perspectivas · 12 Objetivos Estratégicos · 36 KPIs</span>
+        <span>Prototipo interactivo empresarial · Sistema de Cuadro de Mando Integral</span>
+      </footer>
+    </div>
+  </div>
+
+  <!-- Capa Modal Universal -->
+  <div id="modalLayer" class="modal-layer hidden" role="presentation">
+    <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <header class="modal-header">
+        <div>
+          <span class="eyebrow" id="modalEyebrow">FORMULARIO</span>
+          <h2 id="modalTitle">Nuevo registro</h2>
+        </div>
+        <button id="modalClose" class="icon-btn" aria-label="Cerrar">×</button>
+      </header>
+      <div id="modalBody" class="modal-body"></div>
+      <footer id="modalFooter" class="modal-footer"></footer>
+    </section>
+  </div>
+
+  <!-- Región Toast de Notificaciones -->
+  <div id="toastRegion" class="toast-region" aria-live="polite"></div>
+</body>
+</html>

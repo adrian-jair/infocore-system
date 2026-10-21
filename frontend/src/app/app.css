@@ -1,0 +1,210 @@
+.app-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Sidebar Estilo ERP/BI Corporativo */
+.sidebar {
+  width: 260px;
+  background-color: var(--primary);
+  color: #f8fafc;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 50;
+  border-right: 1px solid var(--primary-border);
+}
+
+.sidebar-header {
+  padding: 1.25rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border-bottom: 1px solid var(--primary-border);
+}
+
+.brand-logo {
+  font-size: 1.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.35rem 0.5rem;
+  border-radius: 0.5rem;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-title {
+  font-weight: 700;
+  font-size: 1rem;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+.brand-subtitle {
+  font-size: 0.7rem;
+  color: #94a3b8;
+}
+
+.sidebar-nav {
+  flex: 1;
+  padding: 1rem 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  overflow-y: auto;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.65rem 0.85rem;
+  border-radius: 0.5rem;
+  color: #cbd5e1;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.15s ease;
+}
+
+.nav-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+}
+
+.nav-item.active {
+  background: var(--accent);
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.nav-icon {
+  font-size: 1.1rem;
+}
+
+.sidebar-footer {
+  padding: 1rem;
+  border-top: 1px solid var(--primary-border);
+}
+
+.compliance-status-pill {
+  background: rgba(217, 119, 6, 0.2);
+  border: 1px solid rgba(217, 119, 6, 0.4);
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #fde68a;
+}
+
+.status-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: #f59e0b;
+  display: inline-block;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(0.95); opacity: 0.8; }
+  50% { transform: scale(1.15); opacity: 1; }
+  100% { transform: scale(0.95); opacity: 0.8; }
+}
+
+/* Main Area */
+.main-wrapper {
+  flex: 1;
+  margin-left: 260px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.topbar {
+  height: 60px;
+  background: #ffffff;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 40;
+}
+
+.topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.company-badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  background: #f1f5f9;
+  padding: 0.25rem 0.6rem;
+  border-radius: 0.25rem;
+  color: var(--primary);
+}
+
+.period-badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.user-profile-menu {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.user-avatar {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: #eff6ff;
+  color: var(--accent);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  border: 1px solid #bfdbfe;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-name {
+  font-size: 0.8rem;
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--primary);
+}
+
+.user-role {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+.main-content {
+  flex: 1;
+  background-color: var(--bg-app);
+}
